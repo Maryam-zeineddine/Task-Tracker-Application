@@ -1,0 +1,142 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background: #f4f5f7;
+    color: #1a1a1a;
+}
+
+.app{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.app h1{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2e3a59;
+}
+
+/* --- Add Task Form --- */
+
+.add-task-form input{
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #d0d3d9;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.add-task-form button{
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background: #3b5bbd;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.add-task-form button:hover{
+    background: #2f4bc0;
+}
+
+/* --- Filter Bar --- */
+
+.filter-bar{
+    display:flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.filter-bar button{
+    padding: 0.4rem 1rem;
+    border: 1px solid #d0d3d9;
+    border-radius: 20px;
+    background: white;
+    cursor:pointer;
+    font-size:  0.9rem;
+}
+
+.filter-bar button.active{
+    background: #3b5bdb;
+    color: white;
+    border-color: #3b5bdb;
+}
+
+/* --- Task List --- */
+
+.task-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.task-item{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.task-item input[type='checkbox']{
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+.task-title.completed{
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-item input[type='text']{
+    flex: 1;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #d0d3d9;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.task-item buttom{
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    background: #e9ecef;
+}
+
+.task-item button:hover{
+    background: #dde1e6;
+}
+
+.empty-state{
+    text-align: center;
+    color: #888;
+    margin-top: 2rem;
+}
+
+/* --- Responsive --- */
+
+@media(max-width: 480px){
+    .app{
+        padding: 1rem 0.75rem;
+    }
+
+    .task-item{
+        flex-wrap: wrap;
+    }
+}
