@@ -1,75 +1,60 @@
-# React + TypeScript + Vite
+# Task Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple task management app built with React, TypeScript, and Vite. Users can add, edit, delete, and complete tasks, filter them by status, and their data persists across page reloads via `localStorage`.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add new tasks
+- Edit tasks inline (click a task's title to edit it)
+- Delete tasks
+- Mark tasks as completed
+- Completed tasks automatically sort to the bottom of the list
+- Filter tasks by **All**, **Completed**, or **Incomplete**
+- Data persists in the browser via `localStorage` — tasks remain after refreshing or closing the tab
+- Responsive layout for mobile and desktop
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** (functional components + Hooks: `useState`, `useEffect`)
+- **TypeScript**
+- **Vite** (build tool/dev server)
+- Plain CSS (Flexbox-based layout)
 
-## Expanding the ESLint configuration
+## Project Structure
+src/
+├── components/
+│ ├── AddTaskForm.tsx # Form to add a new task
+│ ├── FilterBar.tsx # All / Completed / Incomplete filter buttons
+│ ├── TaskItem.tsx # Single task row (checkbox, inline edit, delete)
+│ └── TaskList.tsx # Renders the list of TaskItem components
+├── hooks/
+│ └── useLocalStorage.ts # Custom hook syncing state with localStorage
+├── types.ts # Task and FilterType TypeScript definitions
+├── App.tsx # Main app: state, handlers, layout
+├── App.css # Styling
+└── main.tsx # App entry point
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to Run Locally
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+1. Clone the repository:
+```bash
+   git clone https://github.com/Maryam-zeineddine/Task-Tracker-Application.git
+   cd Task-Tracker-Application
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+2. Install dependencies:
+```bash
+   npm install
 ```
+
+3. Start the development server:
+```bash
+   npm run dev
+```
+
+4. Open the URL shown in the terminal (typically `http://localhost:5173`) in your browser.
+
+## Notes
+
+- Tasks are stored under the `tasks` key in the browser's `localStorage`. Clearing your browser's site data will reset the app.
+- No backend or database is used — this is a fully client-side application.
