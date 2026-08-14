@@ -21,6 +21,7 @@ A simple task management app built with React, TypeScript, and Vite. Users can a
 - Plain CSS (Flexbox-based layout)
 
 ## Project Structure
+```
 src/
 ├── components/
 │ ├── AddTaskForm.tsx # Form to add a new task
@@ -33,6 +34,7 @@ src/
 ├── App.tsx # Main app: state, handlers, layout
 ├── App.css # Styling
 └── main.tsx # App entry point
+```
 
 ## How to Run Locally
 
